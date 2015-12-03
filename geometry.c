@@ -19,6 +19,14 @@
 
 #define DEBUG(file, line, func, msg) fprintf(stderr, "DEBUG - %s_%d_%s: %s", file, line, func, msg);
 
+double coord_2d_area_triangle(const coord_2d_t* a, const coord_2d_t* b, const coord_2d_t* c) 
+{
+	double area = abs(((a->x)*((b->y)-(c->y))+(b->x)*((c->y)-(a->y))+(c->x)*((a->y)-(b->y)))/(2.0));
+	double test = (a->x)*((b->y)-(c->y));
+	printf("%f\n", test);
+	return area;
+}
+
 double coord_2d_dist(const coord_2d_t* a, const coord_2d_t* b){
 
     /* Input Checks */
@@ -69,3 +77,21 @@ void coord_2d_midpoint(coord_2d_t* mid, const coord_2d_t* a, const coord_2d_t* b
     mid->y = ((a->y + b->y) / 2.0 );
 
 }
+/*
+int main(void){
+	coord_2d_t a;
+	coord_2d_t b;
+	coord_2d_t c;
+	
+	a.x = 15;
+	a.y = 15;
+	b.x = 23;
+	b.y = 30;
+	c.x = 32;
+	c.y = 15;
+	
+	double area = coord_2d_area_triangle(&a, &b, &c);
+	printf("%f\n", area);
+	return 0;
+}
+*/

@@ -22,6 +22,9 @@ geometry_test: geometry_test.o geometry.o
 geometry_test.o: geometry_test.c geometry.h
 	$(CC) $(CFLAGS) $< -o $@
 
+geometry: geometry.o
+	$(CC) $(LFLAGS) $^ $(PKG_CHECK_LIBS) $(PKG_MATH_LIBS) -o $@
+
 geometry.o: geometry.c geometry.h
 	$(CC) $(CFLAGS) $< -o $@
 
